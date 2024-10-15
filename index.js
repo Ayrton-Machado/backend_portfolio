@@ -61,7 +61,7 @@ const cards = [
 ]
 
 app.get("/", (req, res) => {
-    res.status(200).json(cards);
+    res.status(200).json({cards});
     console.log("Success");
 });
 
@@ -72,11 +72,11 @@ app.post('/cadastrar', (req, res) => {
     res.status(201).json({mensagem: "deu boa o POST"})
 })
 
-app.put('/falas', (req, res) => {
-    const mensagem = req.body.mensagem
-    const numero = req.body.numero
-    cards[numero].mensagem = mensagem
-    console.log(cards)
+app.put('/cartoes', (req, res) => {
+    console.log(req.body)
+    const {id, title, icon_class, link, desc} = req.body;
+    console.log(id)
+    cards[id] = {title:title, icon_class:icon_class, link:link, desc:desc}
     res.status(201).json({mensagem: "deu bom o put"})
 })
 
