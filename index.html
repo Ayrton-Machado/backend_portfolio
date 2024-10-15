@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>API teste carros</h1>
+
+    <div>
+        <h2>GET - LISTA CARROS</h2>
+        <button>Listar Carros</button>
+        <pre id="carrosList" ></pre>
+    </div>
+    
+    <div>
+        <h2>Falas</h2>
+        <button>Listar Falas</button>
+        <pre id="falasList" ></pre>
+    </div>
+
+    <div>
+        <h2>POST - Adicionar Fala</h2>
+        <input type="text" id="novaFala">
+        <button>Adicionar Fala</button>
+        <pre id="PostResponse"></pre>
+    </div>
+
+    <div>
+        <h2>PUT - Atualizar Fala</h2>
+        <input type="number" id="putNumero" placeholder="Número da Fala">
+        <input type="text" id="putMensagem" placeholder="Nova Mensagem">
+        <button>Atualizar Fala</button>
+        <pre id="putResponse"></pre>
+    </div>
+
+    <div>
+        <h2>DELETE - Deletar Fala</h2>
+        <input type="number" id="deleteNumero" placeholder="Número da Fala">
+        <button onclick="deletarFala()">Deletar Fala</button>
+        <pre id="deleteResponse"></pre>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>
