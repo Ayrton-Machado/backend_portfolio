@@ -72,9 +72,8 @@ app.post('/cadastrar', (req, res) => {
 })
 
 app.put('/cartoes', (req, res) => {
-    console.log(req.body);
-    const {id, title, icon_class, desc} = req.body;
-    cards[id] = {title:title, icon_class:icon_class, desc:desc}
+    const {id, title, icon_class, link, desc} = req.body;
+    cards[id] = {title:title, icon_class:icon_class, link:link, desc:desc}
     res.status(201).json({mensagem: "deu bom o put"})
 })
 
