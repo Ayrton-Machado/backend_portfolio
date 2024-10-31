@@ -110,7 +110,7 @@ app.put('/cartoes', async (req, res) => {
 
 app.delete('/delete', async (req, res) => {
     const id = req.body.cartao;
-    console.log(`ID recebido para exclusão:  ${id} + ${cartao} + ${req.body.cartao}`); // Adiciona log para depuração
+    console.log(`ID recebido para exclusão:`, id); // Adiciona log para depuração
 
     // Verifica se o ID foi fornecido
     if (!id) {
