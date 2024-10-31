@@ -110,15 +110,13 @@ app.put('/cartoes', async (req, res) => {
 
 app.delete('/delete', async (req, res) => {
     const id = req.body.cartao;
+    console.log(`ID recebido para exclusão:  ${id} + ${cartao} + ${req.body.cartao}`); // Adiciona log para depuração
 
-    console.log("ID recebido para exclusão:", id); // Adiciona log para depuração
-
-    try {
-        // Verifica se o ID foi fornecido
-        if (!id) {
-            return res.status(400).json({ mensagem: "ID do cartão não foi fornecido" });
-        }
-
+    // Verifica se o ID foi fornecido
+    if (!id) {
+        return res.status(400).json({ mensagem: "ID do cartão não foi fornecido" });
+    } else {
+        try {
         // Exclui o documento com o ID fornecido
         const cartaoRef = await db.collection('cartoes').doc(id).delete();
         const doc = await cartaoRef.get()
@@ -130,9 +128,10 @@ app.delete('/delete', async (req, res) => {
             res.status(200).json({ mensagem: 'Cartao com ID' + cartao + 'deletado'})
             console.log('Cartão com ID' + cartao + 'deletado')
         }
-    } catch (e) {
-        console.log('Erro ao excluir o cartão:', e);
-        res.status(500).json({ mensagem: "Erro ao excluir o cartão: " + e });
+        } catch (e) {
+            console.log('Erro ao excluir o cartão:', e);
+            res.status(500).json({ mensagem: "Erro ao excluir o cartão: " + e });
+        }
     }
 });
 
