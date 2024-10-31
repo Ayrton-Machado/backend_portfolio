@@ -118,7 +118,7 @@ app.delete('/delete', async (req, res) => {
     } else {
         try {
         // Exclui o documento com o ID fornecido
-        const cartaoRef = await db.collection('cartoes').doc(id).delete();
+        const cartaoRef = await db.collection('cartoes').doc(id);
         const doc = await cartaoRef.get()
         if (!doc.exists) {
             res.status(404).json({ mensagem: 'Cartão com ID' + cartao + 'nao encontrado' })
